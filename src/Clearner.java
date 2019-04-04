@@ -10,6 +10,7 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.xssf.eventusermodel.XSSFReader;
 import org.apache.poi.xssf.streaming.SXSSFSheet;
 import org.apache.poi.xssf.streaming.SXSSFWorkbook;
@@ -20,11 +21,12 @@ public class Clearner {
 	public static void main(String[] args) throws Exception {
 		List<List<String>> records = new ArrayList<>();
 		String osNewLine = System.getProperty("line.separator");
-		String filepath = "C:\\Users\\linsi\\Desktop\\DLDataClearner\\Book1.xlsx";
+		String filepath = "C:\\Users\\linsi\\Desktop\\DLDataClearner\\DL_data\\CD.xlsx";
 		
 		File excelFile = new File(filepath);
-		//InputStream fis = new FileInputStream(excelFile);
-		XSSFWorkbook workbook = new XSSFWorkbook(excelFile);
+		InputStream fis = new FileInputStream(excelFile);
+		Workbook workbook = WorkbookFactory.create(fis);
+				//new XSSFWorkbook(fis);
 		
 	    System.out.println("sheet number of sheet : " + workbook.getNumberOfSheets());
 	    for (int i = 0; i < workbook.getNumberOfSheets(); i++) {
