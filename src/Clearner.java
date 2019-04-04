@@ -20,7 +20,7 @@ public class Clearner {
 	public static void main(String[] args) throws Exception {
 		List<List<String>> records = new ArrayList<>();
 		String osNewLine = System.getProperty("line.separator");
-		String filepath = "src/CD.xlsx";
+		String filepath = "C:\\Users\\linsi\\Desktop\\DLDataClearner\\Book1.xlsx";
 		
 		File excelFile = new File(filepath);
 		//InputStream fis = new FileInputStream(excelFile);
@@ -37,7 +37,7 @@ public class Clearner {
             for(int r = 0; r < row; r++) {
                 for(int c = 0; c < col; c++) {
                     String text = sheet.getRow(r).getCell(c).getStringCellValue();
-                    if (records.get(r) == null) {
+                    if (records.size() >= r) {
                 		records.add(new ArrayList<>());
                 	}
                     if (r == 0) {
